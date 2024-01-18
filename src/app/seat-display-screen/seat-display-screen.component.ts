@@ -26,6 +26,7 @@ export class SeatDisplayScreenComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Checking Previous Bookings;
     let latestSeatsData: any = localStorage.getItem('latestSeatsData') 
     if(latestSeatsData) {
       latestSeatsData = JSON.parse(latestSeatsData);
@@ -33,6 +34,7 @@ export class SeatDisplayScreenComponent implements OnInit {
         for(let item of latestSeatsData) {
           let filteredItems = item.filter((obj: { status: string; }) => obj.status == 'booked');
           for(let filteredItem of filteredItems){
+            //Using this logic for css;
             filteredItem['booked'] = false;
             filteredItem['already_booked'] = true;
           }

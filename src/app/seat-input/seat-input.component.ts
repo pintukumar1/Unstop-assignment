@@ -17,7 +17,7 @@ export class SeatInputComponent implements OnInit{
 
   ngOnInit(): void {
     this.seatInputForm = this.fb.group({
-      numberOfSeats: new FormControl('', [Validators.min(1), Validators.max(7)])
+      numberOfSeats: new FormControl('', [Validators.required, Validators.min(1), Validators.max(7)])
     });
   }
 
