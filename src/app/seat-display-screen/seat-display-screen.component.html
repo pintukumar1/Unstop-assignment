@@ -1,0 +1,48 @@
+<div class="center-container">
+    <div class="left-container">
+        <h3>Seat Layout</h3>
+        <div *ngFor="let row of seatData" class="seat-row">
+          <div *ngFor="let seat of row" [ngClass]="{'seat': true, 'free' : seat.status == 'free',  
+                                'booked': seat.status == 'booked', 
+                                'already-booked': seat['already_booked'] === true}">
+            {{ seat.code }}
+          </div>
+        </div>
+      </div>
+    
+      <div class="right-container">
+        <h3>Reserved Seats</h3>
+        <div class="reserved-seat" *ngIf="seatBookedMessage">
+          {{ seatBookedMessage }}
+        </div>
+        <div *ngIf="!seatBookedMessage" class="no-reserved-seats-message">
+          No seats reserved.
+        </div>
+        <div *ngIf="!seatBookedMessage && stopBooking" class="booking-error-message">
+            No available seats for reservation. 😕😕😕 
+        </div>
+
+        <div class="back-button-container" style="text-align: left;">
+            <button class="back-button" (click)="goBack()">Go Back</button>
+        </div>
+
+
+        <div class="legend-container" style="display: flex; flex-flow: column;">
+            <div class="legend-item" style="margin-bottom: 8px;">
+                <div class="legend-color free"></div>
+                <div class="legend-text">Free</div>
+            </div>
+            <div class="legend-item" style="margin-bottom: 8px;">
+              <div class="legend-color booked"></div>
+              <div class="legend-text">Booked</div>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color already-booked"></div>
+              <div class="legend-text">Already Booked</div>
+            </div>
+            
+        </div>
+
+      </div>
+    
+</div>

@@ -8,10 +8,10 @@
             >
 
             <div *ngIf="seatInputForm.controls['numberOfSeats'].invalid" class="error-message">
-                Please enter a valid number of seats.
+                Please input a valid number of seats. The number of seats should be between 1 and 7.
             </div>
         </div>
 
-        <button type="submit" [disabled]="seatInputForm.invalid" class="submit-button">Submit</button>
+        <button type="submit" [disabled]="seatInputForm.invalid" class="submit-button">Book Now</button>
     </form>
 </div>
